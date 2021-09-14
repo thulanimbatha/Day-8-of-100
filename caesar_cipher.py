@@ -14,7 +14,7 @@ def caesar_cipher(message, shift, type):
         position = index + shift    # [z] = 25, [a] = 0, len(alphabet) = 26, [a - 1] = -1 => -1 + 26 = 25 = [z]
         if position >= len(alphabet):    # if IndexError error, subtract it by length size
             position -= len(alphabet)
-        elif position <= alphabet.index("a"):   # if IndexError error, add length size
+        elif position < alphabet.index("a"):   # if IndexError error, add length size
             position += len(alphabet)
         cipher_text += alphabet[position]  # add the new letter to the string
     print(f"The {type}d message is: {cipher_text}")
