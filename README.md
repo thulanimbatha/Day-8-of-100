@@ -1,4 +1,5 @@
 # Day 8: functions with inputs, arguments & parameters
 
-## added area_calc exercise (cans = [wall height * wall width] / coverage per can)
-## added prime number checker exercise
+## area_calc exercise (cans = [wall height * wall width] / coverage per can)
+## prime number checker exercise
+## caesar cipher project
