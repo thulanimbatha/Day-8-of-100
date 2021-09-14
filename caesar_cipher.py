@@ -2,6 +2,7 @@
 import string
 
 alphabet = string.ascii_lowercase
+exit = False
 
 '''COMBINE INTO ONE FUNCTION'''
 def caesar_cipher(message, shift, type):
@@ -20,9 +21,19 @@ def caesar_cipher(message, shift, type):
     print(f"The {type}d message is: {cipher_text}")
 
 '''PROGRAM START'''
-prompt = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-message = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+while not exit:
+    prompt = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    message = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
 
-caesar_cipher(message=message, shift=shift, type=prompt)
+    # what if user enters a big number? -> modulus
+    shift %= len(alphabet)  # shift = shift mod 26 -> eg.45 mod 26 = 18 => which is within the range 
+    caesar_cipher(message=message, shift=shift, type=prompt)
+    end = input("Do you want to try again?\nType 'yes' or 'no': ")
+    if end == "yes":
+        exit = False
+        print("\nLet's go\n")
+    elif end == "no":
+        exit = True
+        print("Goodbye!")
 
